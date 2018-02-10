@@ -134,37 +134,27 @@ class LinkedList {
   }
 
   getNthNode(n) {
-    // INSERT HERE
+   
     var current = this.head;
-    var previous = null;
-    var counter = 1; 
+    var counter = 1;
 
-    //when we have to return the first node
-    if (n === 1){
-      return current;
-    }
     
-    //when we need to return the node that is somewhere in the  middle  
-    while(current.next){
+    //firt evaluate the valid input and 
+    //then go through the loop and check every node and return desired 
+    if(n > 0 && n <= this.length){
+              while(current.next || current.next === null){
 
-        previous = current;
-        current = current.next;
-        counter++;
+                  if (n === counter){
 
-        if (n === counter){
+                    return current;
+                  }
+                  current = current.next;
+                  counter++;
 
-          return current;
-        }
-
-    }
-
-    //when we have to return the last node
-    if(n === this.length){
-      return this.tail;
-    }
-
-    //when user enters invalid NthNode value
-    return 'NthNode value is not valid/out of range';
+              }
+    }else
+   //when user enters invalid NthNode value
+    { return 'NthNode value is not valid/out of range'; }
 
   }
 
