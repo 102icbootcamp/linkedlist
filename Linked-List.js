@@ -77,27 +77,99 @@ class LinkedList {
         return current;
       }
     }
-    return undefined;
+    return "undefineddddddd";
   }
 
   insertNthNode(n, value){
-    // INSERT HERE
+    
+var currentNode=this.head
+var counter=1
+var newNode={value:value,next:null}
+
+if (n>=1 && n<= this.length){
+  if ( n===1){
+    newNode.next=currentNode
+    newNode.value=value 
+    this.head=newNode
+    return this.length++
+  } 
+while (counter<n-1){
+  currentNode=currentNode.next
+  counter++
+}
+  
+  newNode.next=currentNode.next
+  newNode.value=value
+  currentNode.next=newNode
+  return this.length++
+
+ }
+
+
+ return "Wrong value of n"
+
+
+
   }
 
+
+
+  
+
   getNthNode(n) {
-    // INSERT HERE
+    var currentNode =this.head;
+  var counter =1;
+if (this.length>=n){  
+  if (counter===n){
+    return currentNode;
+    }
+  while (counter <n){
+    currentNode=currentNode.next
+    counter++;
   }
+  return currentNode;
+
+  }
+return " n is greater than the length"   
+  }
+//////////////////////////
+addToStart(value){
+    var node = {value: value, next: null};
+    if(!this.head) {
+      
+      this.head = node;
+      this.tail = node;
+      this.length++;
+    }
+    else{
+    node.next=this.head;
+    this.head=node;    
+    this.length++;  
+
+    }
+}
+
 
 }
 
+
+
 var obj = new LinkedList();
 obj.addToList(5)
-console.log ( obj.remove(6) )
 obj.addToList(6)
 obj.addToList(7)
 obj.addToList(8)
-console.log ( obj.remove(6) )
-console.log ( obj.remove(8) )
-console.log(obj);
+obj.addToList(10)
+obj.addToList(50)
+obj.addToStart(200)
+obj.insertNthNode(8,300)
+
+
+
+console.log(obj.getNthNode(3));
+
+var x = obj.insertNthNode(5,100)
+console.log(x)
+console.log(obj)
 
 
